@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="kitty">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rita's Sudoku 🎀</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎀</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="deco" aria-hidden="true"></div>
+<main>
+<header>
+  <svg class="bow" viewBox="0 0 100 60" aria-hidden="true"><path d="M50 30 C30 0 0 5 5 30 C0 55 30 60 50 30Z M50 30 C70 0 100 5 95 30 C100 55 70 60 50 30Z" fill="var(--bow)"/><circle cx="50" cy="30" r="9" fill="var(--bow2)"/></svg>
+  <h1>Rita's Sudoku</h1>
+  <p class="welcome" id="welcome">Hi Rita! 💕 Made just for you — every number you place is a little love note.</p>
+  <div class="toolbar">
+    <label>Skin <select id="theme" aria-label="Theme">
+      <option value="kitty">🎀 Kitty &amp; Kuromi</option>
+      <option value="lux">✨ Lux &amp; Zyra</option></select></label>
+    <label>Level <select id="diff" aria-label="Difficulty">
+      <option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></label>
+    <button id="newGame" class="pill">New game</button>
+  </div>
+</header>
+<section class="stats" aria-live="polite">
+  <div><span>⏱</span><b id="timer">0:00</b></div>
+  <div><span>⭐</span><b id="score">0</b></div>
+  <div><span>🔥</span><b id="streak">0</b></div>
+  <div><span>💔</span><b id="mistakes">0</b></div>
+  <div title="Total points ever"><span>💎</span><b id="total">0</b></div>
+</section>
+<div id="board" role="grid" aria-label="Sudoku board"></div>
+<section class="controls">
+  <button id="undo" class="tool" aria-label="Undo">↶<small>Undo</small></button>
+  <button id="erase" class="tool" aria-label="Erase">⌫<small>Erase</small></button>
+  <button id="notes" class="tool" aria-pressed="false" aria-label="Notes mode">✎<small>Notes <i id="notesState">off</i></small></button>
+  <button id="hint" class="tool" aria-label="Hint">💡<small>Hint</small></button>
+</section>
+<div id="pad" class="pad" aria-label="Number pad"></div>
+<p class="best" id="best"></p>
+<details class="help"><summary>How points work</summary>
+<ul><li>+10 per correct number (+ streak bonus up to +20)</li><li>−15 per mistake, −25 per hint</li>
+<li>Finish bonus: difficulty (Easy 100 / Medium 250 / Hard 500) + speed bonus + 200 for zero mistakes</li>
+<li>Keyboard: arrows to move, 1–9 to fill, Backspace to erase, N notes, Ctrl+Z undo, H hint</li></ul></details>
+<footer>made with love for Rita 💌</footer>
+</main>
+<div id="win" class="win" role="dialog" aria-modal="true" aria-labelledby="winTitle" hidden>
+  <div class="card"><div class="big">🎀👑✨🌹</div><h2 id="winTitle">You did it, Rita!</h2><p id="winMsg"></p><button id="again" class="pill">Play again</button></div>
+</div>
+<div id="confetti" aria-hidden="true"></div>
+<script src="sudoku.js"></script>
+<script src="app.js"></script>
+</body></html>
