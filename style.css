@@ -45,3 +45,5 @@ footer{margin-top:14px;font-size:.8rem;opacity:.7}
 #confetti span{position:absolute;top:-40px;font-size:24px;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.star{width:58px;display:none;margin:4px auto -4px;filter:drop-shadow(0 0 6px #ffd76a)}
+[data-theme=lux] .bow{display:none}[data-theme=lux] .star{display:block}
