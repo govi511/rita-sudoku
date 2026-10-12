@@ -63,6 +63,6 @@ $('newGame').onclick=()=>{if(S.done||S.vals.every((v,i)=>v===S.puzzle[i])||confi
 $('again').onclick=()=>{$('win').hidden=true;newGame();};
 $('diff').onchange=()=>{store.set('diff',$('diff').value);$('newGame').onclick();};
 $('theme').onchange=()=>{document.documentElement.dataset.theme=$('theme').value;store.set('theme',$('theme').value);};
-const th=store.get('theme','kitty');$('theme').value=th;document.documentElement.dataset.theme=th;$('diff').value=store.get('diff','medium');
+const qs=new URLSearchParams(location.search).get('skin');const th=['kitty','lux'].includes(qs)?qs:store.get('theme','kitty');$('theme').value=th;document.documentElement.dataset.theme=th;$('diff').value=store.get('diff','medium');
 const saved=store.get('game',null);if(saved&&!saved.done&&saved.solution){S=saved;$('diff').value=S.diff;sel=S.vals.findIndex(v=>!v);startTimer();render();}else newGame();
 })();
